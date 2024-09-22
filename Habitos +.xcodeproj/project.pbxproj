@@ -8,17 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		5BBD8FB12C9E8C9500D6D902 /* Habitos__App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBD8FB02C9E8C9500D6D902 /* Habitos__App.swift */; };
-		5BBD8FB32C9E8C9500D6D902 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBD8FB22C9E8C9500D6D902 /* ContentView.swift */; };
 		5BBD8FB52C9E8C9700D6D902 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BBD8FB42C9E8C9700D6D902 /* Assets.xcassets */; };
 		5BBD8FB82C9E8C9700D6D902 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BBD8FB72C9E8C9700D6D902 /* Preview Assets.xcassets */; };
+		5BBD8FC32C9E8D4500D6D902 /* SplashUIState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBD8FC22C9E8D4500D6D902 /* SplashUIState.swift */; };
+		5BBD8FC52C9E8D8F00D6D902 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBD8FC42C9E8D8F00D6D902 /* SplashView.swift */; };
+		5BBD8FC72C9E8DBE00D6D902 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBD8FC62C9E8DBE00D6D902 /* SplashViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5BBD8FAD2C9E8C9500D6D902 /* Habitos +.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Habitos +.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BBD8FB02C9E8C9500D6D902 /* Habitos__App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habitos__App.swift; sourceTree = "<group>"; };
-		5BBD8FB22C9E8C9500D6D902 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5BBD8FB42C9E8C9700D6D902 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5BBD8FB72C9E8C9700D6D902 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5BBD8FC22C9E8D4500D6D902 /* SplashUIState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashUIState.swift; sourceTree = "<group>"; };
+		5BBD8FC42C9E8D8F00D6D902 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		5BBD8FC62C9E8DBE00D6D902 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +55,8 @@
 		5BBD8FAF2C9E8C9500D6D902 /* Habitos + */ = {
 			isa = PBXGroup;
 			children = (
+				5BBD8FBE2C9E8CC100D6D902 /* Splash */,
 				5BBD8FB02C9E8C9500D6D902 /* Habitos__App.swift */,
-				5BBD8FB22C9E8C9500D6D902 /* ContentView.swift */,
 				5BBD8FB42C9E8C9700D6D902 /* Assets.xcassets */,
 				5BBD8FB62C9E8C9700D6D902 /* Preview Content */,
 			);
@@ -65,6 +69,40 @@
 				5BBD8FB72C9E8C9700D6D902 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5BBD8FBE2C9E8CC100D6D902 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				5BBD8FBF2C9E8CDA00D6D902 /* Model */,
+				5BBD8FC02C9E8CE400D6D902 /* View */,
+				5BBD8FC12C9E8CF000D6D902 /* ViewModel */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		5BBD8FBF2C9E8CDA00D6D902 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5BBD8FC22C9E8D4500D6D902 /* SplashUIState.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5BBD8FC02C9E8CE400D6D902 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5BBD8FC42C9E8D8F00D6D902 /* SplashView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5BBD8FC12C9E8CF000D6D902 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5BBD8FC62C9E8DBE00D6D902 /* SplashViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +175,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BBD8FB32C9E8C9500D6D902 /* ContentView.swift in Sources */,
+				5BBD8FC72C9E8DBE00D6D902 /* SplashViewModel.swift in Sources */,
+				5BBD8FC32C9E8D4500D6D902 /* SplashUIState.swift in Sources */,
+				5BBD8FC52C9E8D8F00D6D902 /* SplashView.swift in Sources */,
 				5BBD8FB12C9E8C9500D6D902 /* Habitos__App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
