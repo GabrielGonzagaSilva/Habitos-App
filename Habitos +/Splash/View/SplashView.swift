@@ -15,7 +15,8 @@ struct SplashView: View {
             case .loading:
                 loadingView()
             case .goToSingInScreen:
-                Text("Carregar tela de LogIn")
+                //Text("Carregar tela de LogIn")
+                viewModel.singInView()
             case .goToHomeScreen:
                 Text("Carregar tela principal")
                     .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)

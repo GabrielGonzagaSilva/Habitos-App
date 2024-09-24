@@ -13,6 +13,10 @@
 		5BBD8FC32C9E8D4500D6D902 /* SplashUIState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBD8FC22C9E8D4500D6D902 /* SplashUIState.swift */; };
 		5BBD8FC52C9E8D8F00D6D902 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBD8FC42C9E8D8F00D6D902 /* SplashView.swift */; };
 		5BBD8FC72C9E8DBE00D6D902 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBD8FC62C9E8DBE00D6D902 /* SplashViewModel.swift */; };
+		5BD4FFBA2CA23E1C00C0EAC9 /* SingInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD4FFB92CA23E1C00C0EAC9 /* SingInModel.swift */; };
+		5BD4FFBC2CA23E3B00C0EAC9 /* SingInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD4FFBB2CA23E3B00C0EAC9 /* SingInView.swift */; };
+		5BD4FFBE2CA23E5600C0EAC9 /* SingInVIewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD4FFBD2CA23E5600C0EAC9 /* SingInVIewModel.swift */; };
+		5BD4FFC02CA2417600C0EAC9 /* SplashViewModelRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD4FFBF2CA2417600C0EAC9 /* SplashViewModelRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +27,10 @@
 		5BBD8FC22C9E8D4500D6D902 /* SplashUIState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashUIState.swift; sourceTree = "<group>"; };
 		5BBD8FC42C9E8D8F00D6D902 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		5BBD8FC62C9E8DBE00D6D902 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
+		5BD4FFB92CA23E1C00C0EAC9 /* SingInModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingInModel.swift; sourceTree = "<group>"; };
+		5BD4FFBB2CA23E3B00C0EAC9 /* SingInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingInView.swift; sourceTree = "<group>"; };
+		5BD4FFBD2CA23E5600C0EAC9 /* SingInVIewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingInVIewModel.swift; sourceTree = "<group>"; };
+		5BD4FFBF2CA2417600C0EAC9 /* SplashViewModelRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModelRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +63,7 @@
 		5BBD8FAF2C9E8C9500D6D902 /* Habitos + */ = {
 			isa = PBXGroup;
 			children = (
+				5BD4FFB52CA23DB500C0EAC9 /* SingIn */,
 				5BBD8FBE2C9E8CC100D6D902 /* Splash */,
 				5BBD8FB02C9E8C9500D6D902 /* Habitos__App.swift */,
 				5BBD8FB42C9E8C9700D6D902 /* Assets.xcassets */,
@@ -100,7 +109,42 @@
 		5BBD8FC12C9E8CF000D6D902 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				5BD4FFBF2CA2417600C0EAC9 /* SplashViewModelRouter.swift */,
 				5BBD8FC62C9E8DBE00D6D902 /* SplashViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		5BD4FFB52CA23DB500C0EAC9 /* SingIn */ = {
+			isa = PBXGroup;
+			children = (
+				5BD4FFB72CA23DDE00C0EAC9 /* Model */,
+				5BD4FFB62CA23DC600C0EAC9 /* View */,
+				5BD4FFB82CA23DED00C0EAC9 /* ViewModel */,
+			);
+			path = SingIn;
+			sourceTree = "<group>";
+		};
+		5BD4FFB62CA23DC600C0EAC9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5BD4FFBB2CA23E3B00C0EAC9 /* SingInView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5BD4FFB72CA23DDE00C0EAC9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5BD4FFB92CA23E1C00C0EAC9 /* SingInModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5BD4FFB82CA23DED00C0EAC9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5BD4FFBD2CA23E5600C0EAC9 /* SingInVIewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -175,9 +219,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BD4FFC02CA2417600C0EAC9 /* SplashViewModelRouter.swift in Sources */,
+				5BD4FFBE2CA23E5600C0EAC9 /* SingInVIewModel.swift in Sources */,
 				5BBD8FC72C9E8DBE00D6D902 /* SplashViewModel.swift in Sources */,
 				5BBD8FC32C9E8D4500D6D902 /* SplashUIState.swift in Sources */,
 				5BBD8FC52C9E8D8F00D6D902 /* SplashView.swift in Sources */,
+				5BD4FFBA2CA23E1C00C0EAC9 /* SingInModel.swift in Sources */,
+				5BD4FFBC2CA23E3B00C0EAC9 /* SingInView.swift in Sources */,
 				5BBD8FB12C9E8C9500D6D902 /* Habitos__App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
