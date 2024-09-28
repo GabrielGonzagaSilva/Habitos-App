@@ -14,12 +14,13 @@ struct SplashView: View {
             switch viewModel.uiState {
             case .loading:
                 loadingView()
-            case .goToSingInScreen:
+            case .goToLogInScreen:
                 //Text("Carregar tela de LogIn")
-                viewModel.singInView()
+                viewModel.logInView()
             case .goToHomeScreen:
                 Text("Carregar tela principal")
-                    .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
+                   .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
+               
             case .error(let msg):
                 loadingView(error: msg)
             }
