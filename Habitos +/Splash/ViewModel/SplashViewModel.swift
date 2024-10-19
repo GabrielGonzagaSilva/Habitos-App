@@ -7,6 +7,13 @@
 
 import SwiftUI
 
+enum SplashUIState{
+    case loading
+    case goToLogInScreen
+    case goToHomeScreen
+    case error(String)
+}
+
 class SplashViewModel: ObservableObject { 
     @Published var uiState: SplashUIState = .loading
     

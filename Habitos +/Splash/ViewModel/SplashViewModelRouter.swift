@@ -16,8 +16,9 @@ enum SplashViewModelRouter{
     
     // Usamos uma Static func pois não possuimos uma instancia, essa func é direta do enum.
     static func makeLogInView() -> some View { // Retorna uma View
-        let viewModel = LogInViewModel() // ViewModel recebe a instancia do SingInViewModel
-        return LogInView(viewModel: viewModel) // Reorna o SingInView + viewModel
+        let viewModel = LogInViewModel() // ViewModel recebe a instancia do LogInView
+        return LogInView(viewModel: viewModel) // Reorna o LogInView + viewModel
     }
+    
     
 }
