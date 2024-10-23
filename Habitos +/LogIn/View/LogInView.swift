@@ -37,7 +37,7 @@ struct LogInView: View {
                                     .font(Font.system(.title2).bold())
                                     .padding(10)
                                 
-                                numberField
+                                emailField
                                 
                                 passwordField
                                 
@@ -46,7 +46,7 @@ struct LogInView: View {
                                 register
                                 
                             }
-                            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
                             .padding(.horizontal,32)
                             .background(Color.white)
                             .navigationBarTitle("Login", displayMode: .inline)
@@ -72,7 +72,7 @@ struct LogInView: View {
 
 
 extension LogInView{
-    var numberField: some View {
+    var emailField: some View {
         TextField("E-mail", text: $viewModel.email)
             .border(.black)
             .controlSize(.regular)
@@ -85,7 +85,7 @@ extension LogInView{
 
 extension LogInView{
     var passwordField: some View {
-        SecureField("Password", text: $viewModel.password)
+        SecureField("Senha", text: $viewModel.password)
             .border(.black)
             .controlSize(.regular)
             .padding(.vertical,5)
@@ -121,7 +121,7 @@ extension LogInView {
             ZStack{
                 
                 NavigationLink(
-                    destination: Text("Tela de cadastro"), // Encaminha para a tela desejada
+                    destination: viewModel.signUpView(), // Encaminha para a tela desejada
                     tag: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/, // identificador essa tela em especifico
                     selection: $viewModel.action,
                     label: {EmptyView()}) // View vazia para eventos de acoes

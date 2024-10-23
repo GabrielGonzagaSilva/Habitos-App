@@ -34,9 +34,12 @@ class LogInViewModel: ObservableObject {
     }
     
     
+    
     func HomeView() -> some View { // Func que retorna a view
         return LogInViewModelRouter.makeHomeView() // Chamada dentro do SplashViewModelRouter
     }
     
-    
+    func signUpView() -> some View {
+        return LogInViewModelRouter.makeSignUpView()
+    }
 }
