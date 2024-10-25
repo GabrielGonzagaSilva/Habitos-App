@@ -7,9 +7,8 @@
 
 import SwiftUI
 
-// DEFINE AS REGRAS PARA OS ESTADOS DE TELE A QUAL O APP DEVE SE DIRECIONAR
 enum LogInUIState{
-    case none // Ocioso
+    case none 
     case loading
     case goToHomeScreen
     case error(String)
@@ -19,10 +18,8 @@ class LogInViewModel: ObservableObject {
     @Published var email = ""
     @Published var password = ""
     @Published var action: Int? = 0
-    @Published var uiState: LogInUIState = .none // Chama o tipo definino no enum atraves da model
-   
+    @Published var uiState: LogInUIState = .none
     
-    // SIMULA REQUISIÇÃO DE LOGIN
     func login(){
         if !email.isEmpty && !password.isEmpty {
             self.uiState = .loading
@@ -33,10 +30,8 @@ class LogInViewModel: ObservableObject {
         }
     }
     
-    
-    
-    func HomeView() -> some View { // Func que retorna a view
-        return LogInViewModelRouter.makeHomeView() // Chamada dentro do SplashViewModelRouter
+    func HomeView() -> some View {
+        return LogInViewModelRouter.makeHomeView()
     }
     
     func signUpView() -> some View {

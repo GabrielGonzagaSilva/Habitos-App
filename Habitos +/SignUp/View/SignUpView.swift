@@ -10,23 +10,40 @@ import SwiftUI
 struct SignUpView: View {
     @StateObject var viewModel: SignUpViewModel
     var body: some View {
-        
         ZStack{
+            if case SignUpUiState.error(let value) = viewModel.uiState{
+                Text("")
+                    .alert(isPresented: .constant(true)) {
+                        Alert(
+                            title: Text("Habitos +"),
+                            message: Text(value),
+                            dismissButton: .default(Text("Ok")){
+                        })
+                    }
+            }
+            if case SignUpUiState.goToHomeScreen = viewModel.uiState{
+                viewModel.HomeView()
+                
+            } else {
             ScrollView(showsIndicators : true){
                 VStack (alignment: .center, spacing: 8) {
+                    
                     Text("Cadastro")
                         .foregroundColor(.black)
                         .font(Font.system(.title2).bold())
                         .padding(10)
+                    
                     Group{
                         nameField
                         birthdayField
+                        
                         Group{
                             Text("Selecione seu gênero")
                                 .padding(.top, 20)
                             genderField
                                 .padding(.bottom, 20)
                         }
+                        
                         documentField
                         phoneField
                         emailField
@@ -38,11 +55,12 @@ struct SignUpView: View {
                 .padding(.horizontal,32)
                 .background(Color.white)
                 Spacer()
-                //.navigationBarTitle("Login", displayMode: .inline)
             }
-        }
+      }
     }
+  }
 }
+
 
 
 extension SignUpView{
@@ -125,11 +143,11 @@ extension SignUpView{
 extension SignUpView {
     var saveButton: some View {
         Button(action: {
-           
+            viewModel.FinalizarCadastro()
         }, label: {
             Text("Finalizar cadastro")
                 .font(.title3)
-                .frame(maxWidth: .infinity)  // Removendo o token de placeholder
+                .frame(maxWidth: .infinity)
         })
         .buttonStyle(.borderedProminent)
         .controlSize(.regular)
@@ -138,10 +156,6 @@ extension SignUpView {
         .padding(.top, 20)
     }
 }
-
-
-
-
 
 #Preview {
     SignUpView(viewModel: SignUpViewModel())

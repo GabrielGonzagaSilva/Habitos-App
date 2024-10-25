@@ -9,16 +9,17 @@ import SwiftUI
 
 struct LogInView: View {
     @StateObject var viewModel: LogInViewModel
-    
     @State var navigationHidden = true
     
     var body: some View{
-        ZStack{ //CRIA UMA NOVA "CAMADA"
+        ZStack{
             if case LogInUIState.goToHomeScreen = viewModel.uiState{
-                viewModel.HomeView() // ENVIA PARA A TELA DE HOME
+                viewModel.HomeView()
             } else {
-                NavigationView { // VAI PARA A TELA DE LOGIN PADRAO
+                NavigationView {
+                    
                     ScrollView(showsIndicators: false){
+                        
                         VStack(alignment: .center, spacing: 20){
                             
                             Spacer(minLength: 46)
@@ -69,8 +70,6 @@ struct LogInView: View {
     }
 }
 
-
-
 extension LogInView{
     var emailField: some View {
         TextField("E-mail", text: $viewModel.email)
@@ -81,7 +80,6 @@ extension LogInView{
             .disableAutocorrection(true)
     }
 }
-
 
 extension LogInView{
     var passwordField: some View {
@@ -94,16 +92,14 @@ extension LogInView{
     }
 }
 
-
 extension LogInView {
     var enterButton: some View {
         Button(action: {
-            // Chama a função login presente no ViewModel, simulando uma requisição ao servidor
             viewModel.login()
         }, label: {
             Text("Entrar")
                 .font(.title3)
-                .frame(maxWidth: .infinity)  // Removendo o token de placeholder
+                .frame(maxWidth: .infinity)
         })
         .buttonStyle(.borderedProminent)
         .controlSize(.regular)
@@ -111,20 +107,21 @@ extension LogInView {
         .padding(.vertical, 1)
     }
 }
+
 extension LogInView {
     var register: some View {
+        
         VStack{
             Text("Ainda não tem cadastro?")
                 .foregroundColor(.gray)
                 .padding(.top, 50)
             
             ZStack{
-                
                 NavigationLink(
-                    destination: viewModel.signUpView(), // Encaminha para a tela desejada
-                    tag: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/, // identificador essa tela em especifico
+                    destination: viewModel.signUpView(),
+                    tag: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/,
                     selection: $viewModel.action,
-                    label: {EmptyView()}) // View vazia para eventos de acoes
+                    label: {EmptyView()})
                 
                 Button(action: {self.viewModel.action = 1}, label: {
                     Text("Cadastrar-se")
@@ -135,10 +132,8 @@ extension LogInView {
                 .controlSize(.regular)
                 .tint(.black)
                 .padding(.vertical,1)
-
             }
             }
-        
     }
 }
 

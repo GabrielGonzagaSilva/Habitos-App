@@ -24,12 +24,10 @@ class SplashViewModel: ObservableObject {
     }
 }
 
-
 extension SplashViewModel {
     
-    // Este método faz uma chamada do SingInView atraves do router.
-    func logInView() -> some View { // Func que retorna a view
-        return SplashViewModelRouter.makeLogInView() // Chamada dentro do SplashViewModelRouter
+    func logInView() -> some View {
+        return SplashViewModelRouter.makeLogInView()
     }
     
 }

@@ -8,15 +8,19 @@
 import SwiftUI
 
 struct SplashView: View {
-    @ObservedObject var viewModel: SplashViewModel //Objeto observavado
+    @ObservedObject var viewModel: SplashViewModel
+    
     var body: some View {
+        
         Group{
             switch viewModel.uiState {
+                
             case .loading:
                 loadingView()
+                
             case .goToLogInScreen:
-                //Text("Carregar tela de LogIn")
                 viewModel.logInView()
+                
             case .goToHomeScreen:
                 Text("Carregar tela principal")
                    .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
@@ -27,9 +31,11 @@ struct SplashView: View {
         }.onAppear(perform: viewModel.onAppear)
     }
 }
+
 #Preview {
         SplashView(viewModel: SplashViewModel())
 }
+
 extension SplashView{
     func loadingView(error: String? = nil) -> some View {
         ZStack{
