@@ -39,7 +39,7 @@ struct LogInView: View {
                                     .padding(10)
                                 
                                 emailField
-                                
+                                Spacer()
                                 passwordField
                                 
                                 enterButton
@@ -73,10 +73,10 @@ struct LogInView: View {
 extension LogInView{
     var emailField: some View {
         TextField("E-mail", text: $viewModel.email)
-            .border(.black)
+            .padding(10)
             .controlSize(.regular)
-            .padding(.vertical,5)
-            .textFieldStyle(.roundedBorder)
+            .overlay(RoundedRectangle(cornerRadius: 8)
+            .stroke(Color.gray, lineWidth: 2))
             .disableAutocorrection(true)
     }
 }
@@ -84,10 +84,10 @@ extension LogInView{
 extension LogInView{
     var passwordField: some View {
         SecureField("Senha", text: $viewModel.password)
-            .border(.black)
+            .padding(10)
             .controlSize(.regular)
-            .padding(.vertical,5)
-            .textFieldStyle(.roundedBorder)
+            .overlay(RoundedRectangle(cornerRadius: 8)
+            .stroke(Color.gray, lineWidth: 2))
             .disableAutocorrection(true)
     }
 }
@@ -101,6 +101,7 @@ extension LogInView {
                 .font(.title3)
                 .frame(maxWidth: .infinity)
         })
+        .padding(.top, 10)
         .buttonStyle(.borderedProminent)
         .controlSize(.regular)
         .tint(.black)
@@ -114,7 +115,7 @@ extension LogInView {
         VStack{
             Text("Ainda não tem cadastro?")
                 .foregroundColor(.gray)
-                .padding(.top, 50)
+                .padding(.top, 30)
             
             ZStack{
                 NavigationLink(

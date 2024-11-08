@@ -18,58 +18,60 @@ struct SignUpView: View {
                             title: Text("Habitos +"),
                             message: Text(value),
                             dismissButton: .default(Text("Ok")){
-                        })
+                            })
                     }
             }
-            if case SignUpUiState.goToHomeScreen = viewModel.uiState{
+            if case SignUpUiState.sucess = viewModel.uiState{
                 viewModel.HomeView()
                 
             } else {
-            ScrollView(showsIndicators : true){
-                VStack (alignment: .center, spacing: 8) {
-                    
-                    Text("Cadastro")
-                        .foregroundColor(.black)
-                        .font(Font.system(.title2).bold())
-                        .padding(10)
-                    
-                    Group{
-                        nameField
-                        birthdayField
+                ScrollView(showsIndicators : true){
+                    VStack (alignment: .center, spacing: 8) {
+                        
+                        Text("Cadastro")
+                            .foregroundColor(.black)
+                            .font(Font.system(.title2).bold())
+                            .padding(10)
                         
                         Group{
-                            Text("Selecione seu gênero")
-                                .padding(.top, 20)
-                            genderField
-                                .padding(.bottom, 20)
+                            nameField
+                            Spacer()
+                            birthdayField
+                            
+                            Group{
+                                Text("Selecione seu gênero")
+                                    .padding(.top, 20)
+                                genderField
+                                    .padding(.bottom, 20)
+                            }
+                            
+                            documentField
+                            Spacer()
+                            phoneField
+                            Spacer()
+                            emailField
+                            Spacer()
+                            passwordField
                         }
-                        
-                        documentField
-                        phoneField
-                        emailField
-                        passwordField
+                        saveButton
                     }
-                    saveButton
+                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity)
+                    .padding(.horizontal,32)
+                    .background(Color.white)
+                    Spacer()
                 }
-                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity)
-                .padding(.horizontal,32)
-                .background(Color.white)
-                Spacer()
             }
-      }
+        }
     }
-  }
 }
-
-
 
 extension SignUpView{
     var emailField: some View {
         TextField("E-mail", text: $viewModel.email)
-            .border(.black)
+            .padding(10)
             .controlSize(.regular)
-            .padding(.vertical,5)
-            .textFieldStyle(.roundedBorder)
+            .overlay(RoundedRectangle(cornerRadius: 8)
+            .stroke(Color.gray, lineWidth: 2))
             .disableAutocorrection(true)
     }
 }
@@ -77,10 +79,10 @@ extension SignUpView{
 extension SignUpView{
     var nameField: some View {
         TextField("Nome completo", text: $viewModel.fullName)
-            .border(.black)
+            .padding(10)
             .controlSize(.regular)
-            .padding(.vertical,5)
-            .textFieldStyle(.roundedBorder)
+            .overlay(RoundedRectangle(cornerRadius: 8)
+            .stroke(Color.gray, lineWidth: 2))
             .disableAutocorrection(true)
     }
 }
@@ -88,10 +90,10 @@ extension SignUpView{
 extension SignUpView{
     var birthdayField: some View {
         TextField("Data de nascimento", text: $viewModel.birthday)
-            .border(.black)
+            .padding(10)
             .controlSize(.regular)
-            .padding(.vertical,5)
-            .textFieldStyle(.roundedBorder)
+            .overlay(RoundedRectangle(cornerRadius: 8)
+            .stroke(Color.gray, lineWidth: 2))
             .disableAutocorrection(true)
     }
 }
@@ -99,10 +101,10 @@ extension SignUpView{
 extension SignUpView{
     var documentField: some View {
         TextField("CPF", text: $viewModel.document)
-            .border(.black)
+            .padding(10)
             .controlSize(.regular)
-            .padding(.vertical,5)
-            .textFieldStyle(.roundedBorder)
+            .overlay(RoundedRectangle(cornerRadius: 8)
+            .stroke(Color.gray, lineWidth: 2))
             .disableAutocorrection(true)
     }
 }
@@ -117,14 +119,13 @@ extension SignUpView{
     }
 }
 
-
 extension SignUpView{
     var phoneField: some View {
         TextField("Telefone", text: $viewModel.phone)
-            .border(.black)
+            .padding(10)
             .controlSize(.regular)
-            .padding(.vertical,5)
-            .textFieldStyle(.roundedBorder)
+            .overlay(RoundedRectangle(cornerRadius: 8)
+            .stroke(Color.gray, lineWidth: 2))
             .disableAutocorrection(true)
     }
 }
@@ -132,10 +133,10 @@ extension SignUpView{
 extension SignUpView{
     var passwordField: some View {
         SecureField("Senha", text: $viewModel.password)
-            .border(.black)
+            .padding(10)
             .controlSize(.regular)
-            .padding(.vertical,5)
-            .textFieldStyle(.roundedBorder)
+            .overlay(RoundedRectangle(cornerRadius: 8)
+            .stroke(Color.gray, lineWidth: 2))
             .disableAutocorrection(true)
     }
 }

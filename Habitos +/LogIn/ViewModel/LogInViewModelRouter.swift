@@ -6,8 +6,7 @@
 //
 
 import SwiftUI
-
-
+import Combine
 
 enum LogInViewModelRouter{
     static func makeHomeView() -> some View {
@@ -15,9 +14,9 @@ enum LogInViewModelRouter{
         return HomeView(viewModel: viewModel)
     }
     
-    static func makeSignUpView() -> some View {
+    static func makeSignUpView(publisher: PassthroughSubject<Bool, Never>) -> some View {
         let viewModel = SignUpViewModel()
+        viewModel.publisher = publisher
         return SignUpView(viewModel: viewModel)
     }
-    
 }

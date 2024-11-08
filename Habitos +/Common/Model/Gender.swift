@@ -9,7 +9,7 @@ import Foundation
 
 enum Gender: String, CaseIterable, Identifiable{
     case male = "Masculino"
-    case female = "Femenino"
+    case female = "Feminino"
     case nonBinary = "Não binário"
     case preferNotToSay = "Prefiro não dizer"
     

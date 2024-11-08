@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
+import Combine
 
 enum SignUpUiState{
     case none
     case loading
-    case goToHomeScreen
+    case sucess
     case error(String)
 }
 
@@ -26,6 +27,10 @@ class SignUpViewModel: ObservableObject {
     @Published var birthday = ""
     @Published var gender: Gender = .nonBinary
     
+//----------------------------------------------------
+    var publisher: PassthroughSubject <Bool, Never>!
+
+//----------------------------------------------------
     
     func HomeView() -> some View {
         return SignUpViewModelRouter.makeHomeView()
@@ -36,7 +41,8 @@ class SignUpViewModel: ObservableObject {
         
         if [email, password, fullName, document, phone, birthday].allSatisfy({ !$0.isEmpty }) {
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                self.uiState = .goToHomeScreen
+//                self.uiState = .sucess
+                self.publisher.send(true) //Envia mudança para o publisher
             }
         } else {
             self.uiState = .error("Preencha todos os campos")

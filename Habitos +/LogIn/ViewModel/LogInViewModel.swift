@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 enum LogInUIState{
     case none 
@@ -13,13 +14,28 @@ enum LogInUIState{
     case goToHomeScreen
     case error(String)
 }
-
 class LogInViewModel: ObservableObject {
     @Published var email = ""
     @Published var password = ""
     @Published var action: Int? = 0
     @Published var uiState: LogInUIState = .none
+
+   //Uso do Combine em programação reativa.
+// -------------------------------------------------------
+    private let publisher = PassthroughSubject <Bool, Never>()
+    private var cancellable: AnyCancellable?
     
+    init() {
+        cancellable = publisher.sink { value in
+            if value {
+                self.uiState = .goToHomeScreen
+            }
+        }
+    }
+    deinit {
+        cancellable?.cancel()
+    }
+// -------------------------------------------------------
     func login(){
         if !email.isEmpty && !password.isEmpty {
             self.uiState = .loading
@@ -35,6 +51,6 @@ class LogInViewModel: ObservableObject {
     }
     
     func signUpView() -> some View {
-        return LogInViewModelRouter.makeSignUpView()
+        return LogInViewModelRouter.makeSignUpView(publisher: publisher)
     }
 }
